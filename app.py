@@ -4,12 +4,6 @@ warnings.filterwarnings("ignore")
 import numpy as np
 import pandas as pd
 import streamlit as st
-import yfinance as yf
-import plotly.graph_objects as go
-import plotly.express as px
-
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
 st.set_page_config(
     page_title="StockLab AI | Phân tích chứng khoán",
@@ -17,6 +11,17 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
+
+try:
+    import yfinance as yf
+    import plotly.graph_objects as go
+    import plotly.express as px
+    from sklearn.preprocessing import MinMaxScaler
+    from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+except ModuleNotFoundError as e:
+    st.error(f"Thiếu thư viện: {e.name}")
+    st.info("Kiểm tra requirements.txt trên GitHub và khởi động lại ứng dụng.")
+    st.stop()
 
 # ---------- GIAO DIỆN ----------
 st.markdown("""

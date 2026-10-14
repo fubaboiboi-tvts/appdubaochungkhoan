@@ -4,7 +4,11 @@ warnings.filterwarnings("ignore")
 import numpy as np
 import pandas as pd
 import streamlit as st
-import yfinance as yf
+try:
+    import yfinance as yf
+except ImportError:
+    st.error("Không tải được thư viện yfinance. Môi trường chạy chưa có thư viện này.")
+    st.stop()
 import plotly.graph_objects as go
 import plotly.express as px
 

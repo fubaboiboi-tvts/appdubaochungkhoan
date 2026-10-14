@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 try:
-    import yfinance as yf
+    import requests
 except ImportError:
     st.error("Không tải được thư viện yfinance. Môi trường chạy chưa có thư viện này.")
     st.stop()
